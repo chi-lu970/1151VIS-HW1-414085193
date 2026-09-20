@@ -4,46 +4,77 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>台灣本島地形高度分佈</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="css/style.css" />
 <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
 </head>
 <body>
+<div class="spectrum-bar" aria-hidden="true"></div>
+
 <header>
+  <p class="eyebrow">資料分析與視覺化 · 作業一</p>
   <h1>台灣本島地形高度分佈</h1>
-  <p class="subtitle">資料分析與視覺化 · 作業一 · 靜態視覺化（D3.js）</p>
+  <p class="subtitle">四種靜態圖表，從空間、結構、統計到人的尺度，拼出一份完整的地形讀法</p>
   <p class="intro">
     資料來源：Copernicus GLO-30 DEM（30m 解析度，AWS Open Data）。
-    以下透過四種互補的靜態圖表呈現台灣本島（不含澎湖、金門、馬祖）的地形高度分佈：
-    分層設色地形圖呈現空間分布、等高線圖呈現山脈結構、直方圖呈現面積—高程的統計分布、
-    地形剖面圖呈現走一趟實際要爬多高。
+    呈現範圍為台灣本島，不含澎湖、金門、馬祖等離島。
   </p>
 </header>
 
 <main>
-  <section id="view-map" class="panel">
+  <section class="panel guide">
+    <h2>怎麼讀這份視覺化</h2>
+    <p class="guide-intro">
+      地形是同時具備空間分布、結構特徵與統計性質的資料，單一圖表難以完整呈現。
+      以下依「一圖一問」的原則拆解為四個互補視圖，並共用同一套高度色階串連彼此：
+    </p>
+    <div class="guide-steps">
+      <div class="guide-step">
+        <span class="step-num">1</span>
+        <p class="guide-step-text"><strong>分層設色地形圖</strong><br />— 哪裡高、哪裡低</p>
+      </div>
+      <div class="guide-step">
+        <span class="step-num">2</span>
+        <p class="guide-step-text"><strong>等高線圖</strong><br />— 山脈怎麼連起來</p>
+      </div>
+      <div class="guide-step">
+        <span class="step-num">3</span>
+        <p class="guide-step-text"><strong>直方圖</strong><br />— 各高度佔多少土地</p>
+      </div>
+      <div class="guide-step">
+        <span class="step-num">4</span>
+        <p class="guide-step-text"><strong>剖面圖</strong><br />— 實際要爬多高</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-map" class="panel span-half">
+    <p class="eyebrow">View 01 · 空間分布</p>
     <h2>分層設色地形圖</h2>
     <p class="panel-desc">依海拔高度分層上色，一眼辨識平原、丘陵與高山的空間分布。</p>
     <div id="hypsometric-map"></div>
   </section>
 
-  <section id="view-contour" class="panel">
+  <section id="view-contour" class="panel span-half">
+    <p class="eyebrow">View 02 · 地形結構</p>
     <h2>等高線圖</h2>
     <p class="panel-desc">每 500m 一條等高線，呈現山脈稜線走向，並標註主要高峰位置。</p>
     <div id="contour-map"></div>
   </section>
 
   <section id="view-histogram" class="panel">
+    <p class="eyebrow">View 03 · 統計分布</p>
     <h2>面積—高程分佈直方圖</h2>
     <p class="panel-desc">台灣本島土地面積在各高程區間的佔比，長條顏色與上方地形圖一致。</p>
     <div id="elevation-histogram"></div>
   </section>
 
   <section id="view-profile" class="panel">
+    <p class="eyebrow">View 04 · 垂直剖面</p>
     <h2>地形剖面圖</h2>
-    <p class="panel-desc">
-      想像沿著玉山那條緯線，從西部海岸一路走到東部海岸：把地表像切蛋糕一樣切開側看，
-      就是這張圖。前三張圖都是「由上往下看」的地圖，這張換成側面視角，直接呈現沿途要爬升的實際高度。
-    </p>
+    <p class="panel-desc">沿玉山所在緯度從西岸切到東岸的地形剖面，提供俯視地圖之外實際爬升高度的視角。</p>
     <div id="elevation-profile"></div>
   </section>
 </main>

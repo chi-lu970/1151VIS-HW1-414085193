@@ -4,6 +4,8 @@
   --panel-bg: #ffffff;
   --border: #e2dcd2;
   --accent: #5b7a5b;
+  --font-serif: "Noto Serif TC", "Noto Sans TC", serif;
+  --font-mono: "IBM Plex Mono", "Noto Sans TC", "SF Mono", Menlo, monospace;
 }
 
 * { box-sizing: border-box; }
@@ -16,60 +18,198 @@ body {
   line-height: 1.6;
 }
 
+/* 頁面頂端裝飾條：直接用作業本身的分層設色色階排出來，
+   呼應下面四張圖共用的「高度→顏色」語言，也是全頁唯一的裝飾元素。 */
+.spectrum-bar {
+  height: 6px;
+  background: linear-gradient(
+    90deg,
+    #a9d0a0 0%,
+    #c6dd8f 14%,
+    #e3d989 28%,
+    #e9c178 42%,
+    #dba667 56%,
+    #c68657 70%,
+    #a8694a 84%,
+    #8a5240 94%,
+    #f2efe9 100%
+  );
+}
+
 header {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2.5rem 1.5rem 1rem;
+  padding: 3rem 1.5rem 1.25rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
 }
 
 h1 {
-  font-size: 1.8rem;
-  margin: 0 0 0.3rem;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 2.1rem;
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.01em;
 }
 
 .subtitle {
-  margin: 0 0 1rem;
-  color: #786f60;
-  font-size: 0.95rem;
+  margin: 0 0 1.1rem;
+  color: #5c5548;
+  font-size: 1rem;
 }
 
 .intro {
-  font-size: 0.95rem;
-  color: #4a453d;
+  font-size: 0.85rem;
+  color: #948a7a;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--border);
 }
 
 main {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  padding: 0 1.5rem 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
+}
+
+.guide,
+#view-histogram,
+#view-profile {
+  grid-column: 1 / -1;
 }
 
 .panel {
   background: var(--panel-bg);
   border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 1.5rem;
+  border-radius: 14px;
+  padding: 1.75rem;
+  box-shadow: 0 1px 2px rgba(43, 38, 32, 0.04), 0 12px 28px -18px rgba(43, 38, 32, 0.35);
 }
 
 .panel h2 {
-  margin: 0 0 0.3rem;
-  font-size: 1.2rem;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  margin: 0 0 0.35rem;
+  font-size: 1.25rem;
 }
 
 .panel-desc {
-  margin: 0 0 1rem;
+  margin: 0 0 1.25rem;
   font-size: 0.9rem;
   color: #786f60;
+  max-width: 46em;
+}
+
+.guide {
+  background: #f4f0e7;
+  border-color: #ddd3bf;
+  box-shadow: none;
+}
+
+.guide-intro {
+  margin: 0 0 1rem;
+  font-size: 0.92rem;
+  color: #4a453d;
+}
+
+.guide-steps {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.guide-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  color: #4a453d;
+  padding: 0 1rem;
+  border-left: 1px solid #ddd3bf;
+}
+
+.guide-step:first-child {
+  padding-left: 0;
+  border-left: none;
+}
+
+.step-num {
+  flex: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: transparent;
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.guide-step-text {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.guide-step-text strong {
+  font-size: 0.88rem;
+}
+
+@media (max-width: 860px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+  .span-half {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 700px) {
+  .guide-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .guide-step:nth-child(3) {
+    border-left: none;
+  }
+  .guide-step:nth-child(odd) {
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 420px) {
+  .guide-steps {
+    grid-template-columns: 1fr;
+  }
+  .guide-step {
+    border-left: none;
+    padding-left: 0;
+  }
 }
 
 #hypsometric-map svg,
 #contour-map svg,
-#elevation-histogram svg {
+#elevation-histogram svg,
+#elevation-profile svg {
   display: block;
   margin: 0 auto;
+}
+
+svg text {
+  font-family: var(--font-mono);
 }
 
 .legend text {
@@ -93,9 +233,10 @@ main {
 }
 
 footer {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 1rem 1.5rem 3rem;
-  font-size: 0.8rem;
+  max-width: 1200px;
+  margin: 1.5rem auto 0;
+  padding: 1.25rem 1.5rem 3rem;
+  font-size: 0.78rem;
   color: #948a7a;
+  border-top: 1px solid var(--border);
 }
