@@ -1,0 +1,20 @@
+{
+  "source": "Copernicus GLO-30 DEM (AWS Open Data, s3://copernicus-dem-30m)",
+  "bbox": {
+    "lon_min": 120.0,
+    "lon_max": 122.05,
+    "lat_min": 21.7,
+    "lat_max": 25.4
+  },
+  "total_island_area_km2": 39042.9,
+  "max_elevation_m": 3819.4,
+  "mean_elevation_m": 780.1,
+  "stats_grid_shape": [
+    1300,
+    1000
+  ],
+  "display_grid_shape": [
+    260,
+    200
+  ]
+}

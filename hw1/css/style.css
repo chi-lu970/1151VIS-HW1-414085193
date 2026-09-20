@@ -1,0 +1,101 @@
+:root {
+  --ink: #2b2620;
+  --paper: #faf7f2;
+  --panel-bg: #ffffff;
+  --border: #e2dcd2;
+  --accent: #5b7a5b;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.6;
+}
+
+header {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 1rem;
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin: 0 0 0.3rem;
+}
+
+.subtitle {
+  margin: 0 0 1rem;
+  color: #786f60;
+  font-size: 0.95rem;
+}
+
+.intro {
+  font-size: 0.95rem;
+  color: #4a453d;
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.panel {
+  background: var(--panel-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+
+.panel h2 {
+  margin: 0 0 0.3rem;
+  font-size: 1.2rem;
+}
+
+.panel-desc {
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+  color: #786f60;
+}
+
+#hypsometric-map svg,
+#contour-map svg,
+#elevation-histogram svg {
+  display: block;
+  margin: 0 auto;
+}
+
+.legend text {
+  font-size: 11px;
+  fill: var(--ink);
+}
+
+.map-outline {
+  fill: none;
+  stroke: #3a3228;
+  stroke-width: 0.6;
+}
+
+.profile-area {
+  opacity: 0.85;
+}
+
+.profile-line {
+  stroke: #3a2418;
+  stroke-width: 1.2;
+}
+
+footer {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem 3rem;
+  font-size: 0.8rem;
+  color: #948a7a;
+}

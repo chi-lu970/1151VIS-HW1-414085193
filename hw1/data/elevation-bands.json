@@ -1,0 +1,60 @@
+{
+  "unit": "meters / km2 / percent",
+  "total_island_area_km2": 39042.9,
+  "bands": [
+    {
+      "min_m": 0,
+      "max_m": 100,
+      "area_km2": 11080.0,
+      "pct_of_island": 28.38
+    },
+    {
+      "min_m": 100,
+      "max_m": 500,
+      "area_km2": 9543.6,
+      "pct_of_island": 24.44
+    },
+    {
+      "min_m": 500,
+      "max_m": 1000,
+      "area_km2": 5852.1,
+      "pct_of_island": 14.99
+    },
+    {
+      "min_m": 1000,
+      "max_m": 1500,
+      "area_km2": 4280.8,
+      "pct_of_island": 10.96
+    },
+    {
+      "min_m": 1500,
+      "max_m": 2000,
+      "area_km2": 3571.6,
+      "pct_of_island": 9.15
+    },
+    {
+      "min_m": 2000,
+      "max_m": 2500,
+      "area_km2": 2649.6,
+      "pct_of_island": 6.79
+    },
+    {
+      "min_m": 2500,
+      "max_m": 3000,
+      "area_km2": 1595.5,
+      "pct_of_island": 4.09
+    },
+    {
+      "min_m": 3000,
+      "max_m": 3500,
+      "area_km2": 444.6,
+      "pct_of_island": 1.14
+    },
+    {
+      "min_m": 3500,
+      "max_m": null,
+      "area_km2": 25.2,
+      "pct_of_island": 0.06
+    }
+  ]
+}
