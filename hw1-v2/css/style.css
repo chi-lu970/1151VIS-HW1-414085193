@@ -1,0 +1,152 @@
+:root {
+  --ink: #1a1a1a;
+  --muted: #6e6e6e;
+  --bg: #ffffff;
+  --border: #e6e6e6;
+  --grid: #eee;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, "Inter", "Helvetica Neue", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.55;
+}
+
+header {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 1.5rem;
+}
+
+h1 {
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin: 0 0 0.4rem;
+  letter-spacing: -0.01em;
+}
+
+.subtitle {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.intro {
+  font-size: 0.85rem;
+  color: var(--muted);
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--border);
+}
+
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.panel h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 0.3rem;
+}
+
+.panel-desc {
+  margin: 0 0 1.1rem;
+  font-size: 0.88rem;
+  color: var(--muted);
+  max-width: 46em;
+}
+
+.panel {
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.panel:last-child {
+  border-bottom: none;
+}
+
+svg {
+  font-family: -apple-system, "Inter", "Helvetica Neue", sans-serif;
+  font-size: 11px;
+}
+
+.grid line {
+  stroke: var(--grid);
+  stroke-width: 1;
+}
+
+.axis-label {
+  font-size: 10.5px;
+  fill: var(--muted);
+}
+
+.bubble-label {
+  font-size: 10px;
+  font-weight: 600;
+  fill: #1a1a1a;
+  paint-order: stroke;
+  stroke: #fff;
+  stroke-width: 3;
+}
+
+text.value {
+  font-size: 10.5px;
+  fill: var(--muted);
+}
+
+.whisker {
+  stroke: #999;
+  stroke-width: 1;
+}
+
+.median {
+  stroke-linecap: round;
+}
+
+#chart-bubble,
+#chart-bar,
+#chart-boxplot {
+  position: relative;
+}
+
+#chart-bubble svg,
+#chart-bar svg,
+#chart-boxplot svg {
+  display: block;
+  margin: 0 auto;
+}
+
+.tooltip {
+  position: absolute;
+  pointer-events: none;
+  background: #1a1a1a;
+  color: #fff;
+  font-size: 11.5px;
+  padding: 6px 9px;
+  border-radius: 5px;
+  line-height: 1.5;
+  transition: opacity 0.1s;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+footer {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.25rem 1.5rem 3rem;
+  font-size: 0.78rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+footer a {
+  color: inherit;
+}
