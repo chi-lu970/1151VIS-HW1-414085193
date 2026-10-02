@@ -19,7 +19,7 @@ body {
 }
 
 /* 頁面頂端裝飾條：直接用作業本身的分層設色色階排出來，
-   呼應下面四張圖共用的「高度→顏色」語言，也是全頁唯一的裝飾元素。 */
+   呼應下面兩張圖共用的「高度→顏色」語言，也是全頁唯一的裝飾元素。 */
 .spectrum-bar {
   height: 6px;
   background: linear-gradient(
@@ -32,7 +32,7 @@ body {
     #c68657 70%,
     #a8694a 84%,
     #8a5240 94%,
-    #f2efe9 100%
+    #ff7a00 100%
   );
 }
 
@@ -83,8 +83,8 @@ main {
 }
 
 .guide,
-#view-histogram,
-#view-profile {
+#view-map,
+#view-histogram {
   grid-column: 1 / -1;
 }
 
@@ -126,7 +126,7 @@ main {
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .guide-step {
@@ -173,37 +173,10 @@ main {
   main {
     grid-template-columns: 1fr;
   }
-  .span-half {
-    grid-column: 1 / -1;
-  }
-}
-
-@media (max-width: 700px) {
-  .guide-steps {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .guide-step:nth-child(3) {
-    border-left: none;
-  }
-  .guide-step:nth-child(odd) {
-    padding-left: 0;
-  }
-}
-
-@media (max-width: 420px) {
-  .guide-steps {
-    grid-template-columns: 1fr;
-  }
-  .guide-step {
-    border-left: none;
-    padding-left: 0;
-  }
 }
 
 #hypsometric-map svg,
-#contour-map svg,
-#elevation-histogram svg,
-#elevation-profile svg {
+#elevation-histogram svg {
   display: block;
   margin: 0 auto;
 }
@@ -223,15 +196,6 @@ svg text {
   stroke-width: 0.6;
 }
 
-.profile-area {
-  opacity: 0.85;
-}
-
-.profile-line {
-  stroke: #3a2418;
-  stroke-width: 1.2;
-}
-
 footer {
   max-width: 1200px;
   margin: 1.5rem auto 0;
@@ -240,3 +204,10 @@ footer {
   color: #948a7a;
   border-top: 1px solid var(--border);
 }
+
+/* --- Vue 版新增 --- */
+.status { color: #786f60; font-size: 0.9rem; }
+.status.error { color: #b3402e; }
+.axis text, .y-label { font-size: 11px; fill: var(--ink); }
+
+.guide-step-desc { color: #786f60; font-size: 0.82rem; }

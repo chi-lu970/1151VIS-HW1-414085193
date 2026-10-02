@@ -31,7 +31,7 @@ from scipy import ndimage
 
 ROOT = Path(__file__).resolve().parent.parent
 RAW_DIR = ROOT / "data" / "raw"
-OUT_DIR = ROOT / "data"
+OUT_DIR = ROOT / "public" / "data"
 
 # 台灣本島涵蓋範圍（WGS84 經緯度），略寬於實際海岸線以保留完整輪廓
 BBOX = dict(lon_min=120.0, lon_max=122.05, lat_min=21.7, lat_max=25.4)
